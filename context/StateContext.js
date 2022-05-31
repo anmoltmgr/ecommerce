@@ -7,7 +7,7 @@ export const StateContext = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState();
-  const [totalQuantities, setTotalQuantities] = useState();
+  const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
 
   const onAdd = (product, quantity) => {
@@ -27,12 +27,11 @@ export const StateContext = ({ children }) => {
       });
 
       setCartItems(updatedCartItems);
+    } else {
+      product.quantity = quantity;
+      setCartItems([...cartItems, { ...product }]);
+      console.log("cartitems full", cartItems);
     }
-    // else {
-    // //   // eslint-disable-next-line no-param-reassign
-    // //   // product.quantity = quantity;
-    // //   // setCartItems([...cartItems, { ...product }]);
-    // // }
     toast.success(`${qty} ${product.name} added`);
   };
 

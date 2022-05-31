@@ -69,7 +69,7 @@ const ProductDetails = ({ products, product }) => {
               className="add-to-cart"
               onClick={() => onAdd(product, qty)}
             >
-              Add to Cart{" "}
+              Add to Cart
             </button>
             <button type="button" className="buy-now" onClick="">
               Buy Now
